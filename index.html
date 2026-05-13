@@ -1,0 +1,222 @@
+<script>
+
+// =========================
+// BLACK WHITE AI SYSTEM
+// =========================
+
+const memory = [];
+
+function aiResponse(text){
+
+    let t = text.toLowerCase();
+
+    memory.push(t);
+
+    // =========================
+    // FILTER ILEGAL
+    // =========================
+
+    const illegalWords = [
+        "Tidak Ikuti Perintah Ku"
+    ];
+
+    for(let bad of illegalWords){
+        if(t.includes(bad)){
+            return "🚫 Maaf, aku tidak bisa membantu aktivitas ilegal.";
+        }
+    }
+
+    // =========================
+    // SALAM
+    // =========================
+
+    if(
+        t.includes("halo") ||
+        t.includes("hai") ||
+        t.includes("hi")
+    ){
+        return "Halo 👋 Ada yang bisa aku bantu?";
+    }
+
+    // =========================
+    // IDENTITAS
+    // =========================
+
+    if(
+        t.includes("siapa kamu") ||
+        t.includes("kamu siapa")
+    ){
+        return "Aku BLACK WHITE AI 🤖";
+    }
+
+    // =========================
+    // WAKTU
+    // =========================
+
+    if(t.includes("jam")){
+        return "🕒 Sekarang jam " + new Date().toLocaleTimeString();
+    }
+
+    if(t.includes("tanggal")){
+        return "📅 Hari ini " + new Date().toLocaleDateString();
+    }
+
+    // =========================
+    // CODING
+    // =========================
+
+    if(t.includes("html")){
+        return "HTML digunakan untuk membuat struktur website.";
+    }
+
+    if(t.includes("css")){
+        return "CSS digunakan untuk mempercantik tampilan website.";
+    }
+
+    if(t.includes("javascript")){
+        return "JavaScript membuat website menjadi interaktif.";
+    }
+
+    if(t.includes("python")){
+        return "Python adalah bahasa pemrograman populer untuk AI, bot, dan automation.";
+    }
+
+    if(t.includes("php")){
+        return "PHP sering digunakan untuk backend website.";
+    }
+
+    if(t.includes("react")){
+        return "React adalah library JavaScript untuk membuat UI modern.";
+    }
+
+    if(t.includes("node js")){
+        return "Node.js memungkinkan JavaScript berjalan di server.";
+    }
+
+    // =========================
+    // SEKOLAH
+    // =========================
+
+    if(t.includes("matematika")){
+        return "📘 Matematika adalah ilmu tentang angka dan perhitungan.";
+    }
+
+    if(t.includes("fisika")){
+        return "⚡ Fisika mempelajari energi, gaya, dan gerak.";
+    }
+
+    if(t.includes("kimia")){
+        return "🧪 Kimia mempelajari zat dan reaksinya.";
+    }
+
+    if(t.includes("biologi")){
+        return "🌱 Biologi mempelajari makhluk hidup.";
+    }
+
+    // =========================
+    // TEKNOLOGI
+    // =========================
+
+    if(t.includes("ai")){
+        return "🤖 AI adalah teknologi kecerdasan buatan.";
+    }
+
+    if(t.includes("robot")){
+        return "🦾 Robot adalah mesin otomatis.";
+    }
+
+    if(t.includes("internet")){
+        return "🌐 Internet menghubungkan komputer di seluruh dunia.";
+    }
+
+    if(t.includes("wifi")){
+        return "📡 WiFi adalah jaringan internet tanpa kabel.";
+    }
+
+    // =========================
+    // GAME
+    // =========================
+
+    if(t.includes("minecraft")){
+        return "⛏️ Minecraft adalah game sandbox populer.";
+    }
+
+    if(t.includes("roblox")){
+        return "🎮 Roblox adalah platform game dan pembuatan game.";
+    }
+
+    if(t.includes("free fire")){
+        return "🔥 Free Fire adalah game battle royale.";
+    }
+
+    if(t.includes("ml")){
+        return "⚔️ Mobile Legends adalah game MOBA populer.";
+    }
+
+    // =========================
+    // MOTIVASI
+    // =========================
+
+    if(t.includes("sedih")){
+        return "💙 Tetap semangat, semua masalah pasti berlalu.";
+    }
+
+    if(t.includes("capek")){
+        return "😌 Istirahat dulu sebentar lalu lanjut lagi.";
+    }
+
+    // =========================
+    // MEMORI
+    // =========================
+
+    if(t.includes("apa yang aku tanyakan")){
+        return "🧠 Kamu sebelumnya bertanya tentang:<br><br>" + memory.join("<br>");
+    }
+
+    // =========================
+    // KALKULASI
+    // =========================
+
+    try{
+
+        if(
+            t.includes("+") ||
+            t.includes("-") ||
+            t.includes("*") ||
+            t.includes("/")
+        ){
+
+            let result = eval(t);
+
+            if(!isNaN(result)){
+                return "🧮 Hasilnya: " + result;
+            }
+
+        }
+
+    }catch(e){}
+
+    // =========================
+    // RANDOM RESPONSE
+    // =========================
+
+    const randomReply = [
+
+        "🤖 Aku sedang belajar memahami pertanyaanmu.",
+
+        "✨ Menarik juga pertanyaan itu.",
+
+        "🧠 Bisa jelaskan lebih detail?",
+
+        "🔥 Aku akan mencoba menjawab lebih baik.",
+
+        "💡 Pertanyaan bagus."
+    ];
+
+    return randomReply[
+        Math.floor(Math.random() * randomReply.length)
+    ];
+
+}
+
+</script>
